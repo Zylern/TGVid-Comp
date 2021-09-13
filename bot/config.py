@@ -23,7 +23,7 @@ try:
     OWNER = config("OWNER")
     FFMPEG = config(
         "FFMPEG",
-        default='ffmpeg -i '''{}''' -preset fast -c:v libx265 -s 846x480 -pix_fmt yuv420p -crf 32 -map 0:v -c:a libfdk_aac -profile:a aac_he_v2 -map 0:a -vbr 2 -c:s copy -map 0:s? '''{}''' -y',
+        default='ffmpeg -i "{}" -preset ultrafast -c:v libx265 -crf 27 -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? "{}"',
     )
     THUMB = config("THUMBNAIL")
 except Exception as e:
