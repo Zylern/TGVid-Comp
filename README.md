@@ -25,5 +25,6 @@
 
 `FFMPEG` : Put Your FFMPEG Code with "{}" as input and output.
 
+- [Original Repo](https://github.com/Dark-super-me/Super-Video-Encoder)
 
 
