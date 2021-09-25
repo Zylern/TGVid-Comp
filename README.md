@@ -1,4 +1,4 @@
-### A Telegram Super Video Encoder 
+### A Telegram Video Encoder 
 
 - `Queue Feature` This bot has queue feature.
 - `Thumbnail Feature` This bot has multiple thumbnail feature.
