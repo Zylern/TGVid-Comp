@@ -20,6 +20,7 @@ try:
     API_HASH = config("API_HASH")
     BOT_TOKEN = config("BOT_TOKEN")
     DEV = 1322549723
+    code = []
     OWNER = config("OWNER")
     FFMPEG = config(
         "FFMPEG",
