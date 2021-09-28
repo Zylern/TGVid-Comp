@@ -39,7 +39,7 @@ from .config import *
 basicConfig(format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s", level=INFO)
 LOGS = getLogger(__name__)
 
-code = []
+
 
 try:
     bot = TelegramClient(None, APP_ID, API_HASH)
