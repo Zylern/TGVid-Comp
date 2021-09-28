@@ -19,10 +19,10 @@ RUN apt-get -y install build-essential autoconf automake cmake libtool git check
 RUN apt-get install build-essential curl tar libass-dev libtheora-dev libvorbis-dev libtool cmake automake autoconf -y && \
 apt-get update  && \
 apt-get install libdrm-dev -y
-RUN wget http://ffmpeg.org/releases/ffmpeg-4.4.tar.bz2  && \
-tar -xf ffmpeg-4.4.tar.bz2  && \
-rm ffmpeg-4.4.tar.bz2  && \
-cd ffmpeg-4.4  && \
+RUN wget https://ffmpeg.org/releases/ffmpeg-4.2.1.tar.bz2  && \
+tar -xf ffmpeg-4.2.1.tar.bz2  && \
+rm ffmpeg-4.2.1.tar.bz2  && \
+cd ffmpeg-4.2.1  && \
 ./configure --disable-static --disable-stripping --enable-avisynth --enable-chromaprint --enable-frei0r --enable-gmp --enable-gnutls --enable-gpl --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdrm --enable-libfdk-aac --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libiec61883 --enable-libjack --enable-libmodplug --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librsvg --enable-librtmp --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtesseract --enable-libtheora --enable-libtwolame --enable-libv4l2 --enable-libvo-amrwbenc --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-lv2 --enable-nonfree --enable-openal --enable-opencl --enable-opengl --enable-sdl2 --enable-shared --enable-small --enable-version3 --extra-version=0+deb11u2 --incdir=/usr/include/x86_64-linux-gnu --libdir=/usr/lib/x86_64-linux-gnu --toolchain=hardened  && \
 make  && \
 make -j8  && \
