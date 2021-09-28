@@ -16,7 +16,7 @@
 
 from . import *
 from .devtools import *
-code = []
+
 
 LOGS.info("Starting...")
 
@@ -91,7 +91,7 @@ async def _(e):
 
 ########## AUTO ###########
 
-code = []
+
 code.append("-preset faster -c:v libx265 -s 854x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:defblock1,1' -metadata 'title=Encoded By Zylern' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1")
 
 
