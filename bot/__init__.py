@@ -30,17 +30,16 @@ import traceback
 from datetime import datetime as dt
 from logging import DEBUG, INFO, basicConfig, getLogger, warning
 from pathlib import Path
-
 from html_telegraph_poster import TelegraphPoster
 from telethon import Button, TelegramClient, errors, events, functions, types
 from telethon.sessions import StringSession
 from telethon.utils import pack_bot_file_id
-
 from .config import *
 
 basicConfig(format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s", level=INFO)
 LOGS = getLogger(__name__)
 
+code = []
 
 try:
     bot = TelegramClient(None, APP_ID, API_HASH)
