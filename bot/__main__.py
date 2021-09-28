@@ -20,7 +20,7 @@ from .config import *
 
 LOGS.info("Starting...")
 
-
+AUTH_USERS = [12234, 24335, 353246]
 ######## Connect ########
 
 
