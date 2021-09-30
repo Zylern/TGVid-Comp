@@ -55,15 +55,15 @@ async def encod(event):
             oc = event.fwd_from.from_id.user_id
             occ = (await event.client.get_me()).id
             if oc == occ:
-                return await event.reply("This Video File is already Compressed.")
+                return await event.reply("**This Video is already Compressed.**")
         except BaseException:
             pass
         if WORKING or QUEUE:
-            xxx = await event.reply("`Adding To Queue...`")
+            xxx = await event.reply("**Adding To Queue...**")
             # id = pack_bot_file_id(event.media)
             doc = event.media.document
             if doc.id in list(QUEUE.keys()):
-                return await xxx.edit("THIS FILE ALREADY IN QUEUE")
+                return await xxx.edit("**This File is Already Added in Queue**")
             name = event.file.name
             if not name:
                 name = "video_" + dt.now().isoformat("_", "seconds") + ".mp4"
@@ -114,7 +114,7 @@ async def encod(event):
         kk = dl.split("/")[-1]
         aa = kk.split(".")[-1]
         rr = f"encode"
-        bb = kk.replace(f".{aa}", " CBZ.mkv")
+        bb = kk.replace(f".{aa}", " [CBZ].mkv")
         out = f"{rr}/{bb}"
         thum = "thumb.jpg"
         dtime = ts(int((es - s).seconds) * 1000)
@@ -137,7 +137,7 @@ async def encod(event):
         er = stderr.decode()
         try:
             if er:
-                await e.edit(str(er) + "\n\n**ERROR** Contact @danish_00")
+                await e.edit(str(er) + "\n\n**ERROR**")
                 WORKING.clear()
                 os.remove(dl)
                 return os.remove(out)
