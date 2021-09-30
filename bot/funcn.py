@@ -137,14 +137,13 @@ def decode(key):
 async def skip(e):
     wah = e.pattern_match.group(1).decode("UTF-8")
     wh = decode(wah)
-    out, dl, id = wh.split(";")
-    try:
-        if QUEUE.get(int(id)):
-            WORKING.clear()
-            QUEUE.pop(int(id))
-        await e.delete()
-        os.remove(dl)
-        os.remove(out)
+#    out, dl, id = wh.split(";")
+#    try:
+   #     if QUEUE.get(int(id)):
+    WORKING.clear()
+    await e.delete()
+    os.remove(dl)
+    os.remove(out)
     except BaseException:
         pass
     return
