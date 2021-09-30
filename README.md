@@ -24,7 +24,6 @@
 `THUMBNAIL` : Put telegraph link of a picture for use of Thumbnail.
 
 
-
-- [Original Repo](https://github.com/Dark-super-me/Super-Video-Encoder)
+- [Original Repo](https://github.com/1Danish-00/CompressorQueue)
 
 
