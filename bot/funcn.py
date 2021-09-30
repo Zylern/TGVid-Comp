@@ -140,10 +140,9 @@ async def skip(e):
     out, dl, id = wh.split(";")
     try:
         WORKING.clear()
-    await e.delete()
+        await e.delete()
     os.remove(dl)
     os.remove(out)
     except BaseException:
         pass
     return
-
