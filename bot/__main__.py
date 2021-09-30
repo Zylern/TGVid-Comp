@@ -20,9 +20,6 @@ from .config import *
 
 LOGS.info("Starting...")
 
-AUTH_USERS = [1664850827]
-######## Connect ########
-
 
 try:
     bot.start(bot_token=BOT_TOKEN)

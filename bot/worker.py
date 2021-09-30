@@ -31,7 +31,7 @@ async def stats(e):
     except Exception as er:
         LOGS.info(er)
         await e.answer(
-            "Someting Went Wrong 🤔\nSend Media Again.", cache_time=0, alert=True
+            "Someting Went Wrong.\nSend Media Again.", cache_time=0, alert=True
         )
 
 
