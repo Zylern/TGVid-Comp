@@ -141,8 +141,8 @@ async def skip(e):
     try:
         WORKING.clear()
         await e.delete()
-    os.remove(dl)
-    os.remove(out)
+        os.remove(dl)
+        os.remove(out)
     except BaseException:
         pass
     return
