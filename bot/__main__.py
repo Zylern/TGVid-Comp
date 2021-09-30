@@ -39,6 +39,11 @@ async def _(e):
 async def _(e):
     await up(e)
 
+@bot.on(events.NewMessage(pattern="/sysinfo"))
+async def _(e):
+    await sysinfo(e)
+
+
 
 @bot.on(events.NewMessage(pattern="/help"))
 async def _(e):

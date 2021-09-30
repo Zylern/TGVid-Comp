@@ -15,6 +15,9 @@
 
 from . import *
 from .config import *
+from .worker import *
+from asyncio import create_subprocess_shell as asyncrunapp
+from asyncio.subprocess import PIPE as asyncPIPE
 
 WORKING = []
 QUEUE = {}
@@ -102,6 +105,24 @@ async def progress(current, total, event, start, type_of_ps, file=None):
             )
         else:
             await event.edit("✦ {}\n\n{}".format(type_of_ps, tmp))
+
+async def sysinfo(event):
+    try:
+        zyl = "screenfetch -nN"
+        fetch = await asyncrunapp(
+            zyl,
+            stdout=asyncPIPE,
+            stderr=asyncPIPE,
+        )
+
+        stdout, stderr = await fetch.communicate()
+        result = str(stdout.decode().strip()) \
+            + str(stderr.decode().strip())
+
+        await event.reply("`" + result + "`")
+    except FileNotFoundError:
+        await event.reply("`Install screenfetch first !!`")
+
 
 
 async def info(file, event):
