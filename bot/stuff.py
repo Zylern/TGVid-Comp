@@ -45,13 +45,13 @@ async def help(event):
 async def ihelp(event):
     await event.edit(
         """**Donot use cancel button it have some bug.**\n\n**To check current ffmpeg command you can use.**\n\n`/eval print(ffmpegcode[0])`\n\n**You can change your ffmpeg code by executing following commands.**\n\n**➩** `/eval ffmpegcode.clear()`\n\n**➩** `/eval ffmpegcode.insert(0, "-preset faster -c:v libx265 -s 854x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -metadata 'title=Encoded By Zylern' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2  -ab 32k  -vbr 2 -level 3.1")`\n\n**Don't use \" inside your ffmpeg code it will give you errors use \' instead.**""",
-        buttons=[Button.inline("BACK", data="beck")],
+        buttons=[Button.inline("BACK", callback_data="beck")],
     )
 
 async def beck(event):
     await event.reply(
         f"**Send me the video which you want to compress.**",
         buttons=[
-            [Button.inline("HELP", data="ihelp")],
+            [Button.inline("HELP", callback_data="ihelp")],
         ],
     )
