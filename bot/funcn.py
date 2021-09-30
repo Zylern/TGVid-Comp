@@ -139,9 +139,7 @@ async def skip(e):
     wh = decode(wah)
     out, dl, id = wh.split(";")
     try:
-        if QUEUE.get(int(id)):
-            WORKING.clear()
-            QUEUE.pop(int(id))
+        WORKING.clear()
         await e.delete()
         os.remove(dl)
         os.remove(out)
