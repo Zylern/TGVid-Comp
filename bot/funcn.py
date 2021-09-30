@@ -18,6 +18,7 @@ from .config import *
 from .worker import *
 from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
+import psutil, os, signal
 
 WORKING = []
 QUEUE = {}
@@ -164,6 +165,14 @@ async def skip(e):
         await e.delete()
         os.remove(dl)
         os.remove(out)
+        for proc in psutil.process_iter(): #Lets kill ffmpeg else it will run in memory even after deleting input.
+            processName = proc.name()
+            processID = proc.pid
+            print(processName , ' - ', processID)
+            if(processName == "ffmpeg"):
+             os.kill(processID,signal.SIGKILL)
     except BaseException:
         pass
     return
+
+
