@@ -23,7 +23,7 @@ async def up(event):
     ed = dt.now()
     v = ts(int((ed - uptime).seconds) * 1000)
     ms = (ed - stt).microseconds / 1000
-    p = f"🔥Pɪɴɢ = {ms}ms"
+    p = f"🔥Ping = {ms}ms"
     await event.reply(v + "\n" + p)
 
 
