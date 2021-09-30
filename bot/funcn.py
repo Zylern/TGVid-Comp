@@ -108,7 +108,7 @@ async def progress(current, total, event, start, type_of_ps, file=None):
 
 async def sysinfo(event):
     try:
-        zyl = "screenfetch -nN"
+        zyl = "neofetch --stdout"
         fetch = await asyncrunapp(
             zyl,
             stdout=asyncPIPE,
@@ -119,9 +119,9 @@ async def sysinfo(event):
         result = str(stdout.decode().strip()) \
             + str(stderr.decode().strip())
 
-        await event.reply("`" + result + "`")
+        await event.reply("**" + result + "**")
     except FileNotFoundError:
-        await event.reply("`Install screenfetch first !!`")
+        await event.reply("`Install neofetch first !!`")
 
 
 
