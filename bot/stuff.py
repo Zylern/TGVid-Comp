@@ -27,7 +27,32 @@ async def up(event):
     await event.reply(v + "\n" + p)
 
 
+
 async def start(event):
     await event.reply(
-        f"**Send me the video which you want to compress.**"
+        f"**Send me the video which you want to compress.**"",
+        buttons=[
+            [Button.inline("HELP", data="ihelp")],
+        ],
+    )
+
+
+async def help(event):
+    await event.reply(
+        """**Send me any video and i will start compressing automatically.\n\nFew points to be noted:\n\nDonot use cancel button it have some bug.\nYou can change ffmpeg code using `/eval ffmpegcode.insert(0, "-preset faster -c:v libx265 -s 854x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -metadata 'title=Encoded By Zylern' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2  -ab 32k  -vbr 2 -level 3.1")`\n Don't use " inside the code always use ' instead."""
+    )
+
+
+async def ihelp(event):
+    await event.edit(
+        """**Send me any video and i will start compressing automatically.\n\nFew points to be noted:\n\nDonot use cancel button it have some bug.\nYou can change ffmpeg code using `/eval ffmpegcode.insert(0, "-preset faster -c:v libx265 -s 854x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -metadata 'title=Encoded By Zylern' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2  -ab 32k  -vbr 2 -level 3.1")`\n Don't use " inside the code always use ' instead.""",
+        buttons=[Button.inline("BACK", data="beck")],
+    )
+
+async def beck(event):
+    await event.reply(
+        f"**Send me the video which you want to compress.**"",
+        buttons=[
+            [Button.inline("HELP", data="ihelp")],
+        ],
     )
