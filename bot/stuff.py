@@ -30,7 +30,7 @@ async def up(event):
 
 async def start(event):
     await event.reply(
-        f"**Send me the video which you want to compress.**"",
+        f"**Send me the video which you want to compress.**",
         buttons=[
             [Button.inline("HELP", data="ihelp")],
         ],
@@ -50,7 +50,7 @@ async def ihelp(event):
 
 async def beck(event):
     await event.reply(
-        f"**Send me the video which you want to compress.**"",
+        f"**Send me the video which you want to compress.**",
         buttons=[
             [Button.inline("HELP", data="ihelp")],
         ],
