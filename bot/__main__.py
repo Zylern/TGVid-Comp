@@ -104,7 +104,7 @@ async def something():
         try:
             if not WORKING and QUEUE:
                 user = int(OWNER.split()[0])
-                e = await bot.send_message(user, "**📥 Downloding Queue Files...**")
+                e = await bot.send_message(user, "**📥 Downloading Queue Files...**")
                 dl, file = QUEUE[list(QUEUE.keys())[0]]
                 s = dt.now()
                 tt = time.time()
