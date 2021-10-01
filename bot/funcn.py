@@ -1,17 +1,6 @@
 #    This file is part of the CompressorQueue distribution.
 #    Copyright (c) 2021 Danish_00
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, version 3.
-#
-#    This program is distributed in the hope that it will be useful, but
-#    WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#    General Public License for more details.
-#
-# License can be found in <
-# https://github.com/1Danish-00/CompressorQueue/blob/main/License> .
+# Script Improved by Zylern
 
 from . import *
 from .config import *
@@ -165,8 +154,10 @@ async def skip(e):
             WORKING.clear()
             QUEUE.pop(int(id))
         await e.delete()
-        os.remove(dl)
-        os.remove(out)
+        os.system("rm -rf downloads/*")
+        os.system("rm -rf encode/*")
+#        os.remove(dl)
+#        os.remove(out)
         for proc in psutil.process_iter(): #Lets kill ffmpeg else it will run in memory even after deleting input.
             processName = proc.name()
             processID = proc.pid
