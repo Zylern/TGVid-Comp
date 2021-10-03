@@ -15,7 +15,6 @@
 
 from .worker import *
 
-
 async def up(event):
     if not event.is_private:
         return
@@ -23,9 +22,8 @@ async def up(event):
     ed = dt.now()
     v = ts(int((ed - uptime).seconds) * 1000)
     ms = (ed - stt).microseconds / 1000
-    p = f"🔥Ping = {ms}ms"
+    p = f"Ping = {ms}ms"
     await event.reply(v + "\n" + p)
-
 
 
 async def start(event):
@@ -35,7 +33,13 @@ async def start(event):
             [Button.inline("HELP", data="ihelp")],
         ],
     )
-    
+
+async def help(event):
+    await event.reply(
+        f"""**To check current ffmpeg command you can use.**\n\n`/eval print(ffmpegcode[0])`\n\n**You can change your ffmpeg code by executing following commands.**\n\n**➩** `/eval ffmpegcode.clear()`\n\n**➩** `/eval ffmpegcode.insert(0, "-preset faster -c:v libx265 -s 854x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -metadata 'title=Encoded By Zylern' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2  -ab 32k  -vbr 2 -level 3.1")`\n\n**Don't use \" inside your ffmpeg code it will give you errors use \' instead.**"""
+    )
+
+
 async def ihelp(event):
     await event.edit(
         """**To check current ffmpeg command you can use.**\n\n`/eval print(ffmpegcode[0])`\n\n**You can change your ffmpeg code by executing following commands.**\n\n**➩** `/eval ffmpegcode.clear()`\n\n**➩** `/eval ffmpegcode.insert(0, "-preset faster -c:v libx265 -s 854x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -metadata 'title=Encoded By Zylern' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2  -ab 32k  -vbr 2 -level 3.1")`\n\n**Don't use \" inside your ffmpeg code it will give you errors use \' instead.**"""
