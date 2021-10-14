@@ -1,6 +1,6 @@
 #    This file is part of the CompressorQueue distribution.
 #    Copyright (c) 2021 Danish_00
-# Script Improved by Zylern
+#    Script Improved by Zylern
 
 from . import *
 from .config import *
@@ -167,4 +167,37 @@ async def skip(e):
     except BaseException:
         pass
     return
+
+
+async def fast_download(e, download_url, filename=None):
+    def progress_callback(d, t):
+        return (
+            asyncio.get_event_loop().create_task(
+                progress(
+                    d,
+                    t,
+                    e,
+                    time.time(),
+                    f"**📥 Downloading video from {download_url}**",
+                )
+            ),
+        )
+
+    async with aiohttp.ClientSession() as session:
+        async with session.get(download_url, timeout=None) as response:
+            if not filename:
+                filename = download_url.rpartition("/")[-1]
+            filename = os.path.join("downloads", filename)
+            total_size = int(response.headers.get("content-length", 0)) or None
+            downloaded_size = 0
+            with open(filename, "wb") as f:
+                async for chunk in response.content.iter_chunked(1024):
+                    if chunk:
+                        f.write(chunk)
+                        downloaded_size += len(chunk)
+                    if progress_callback:
+                        await _maybe_await(
+                            progress_callback(downloaded_size, total_size)
+                        )
+            return filename
 

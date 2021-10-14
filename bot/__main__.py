@@ -20,7 +20,6 @@ from .config import *
 
 LOGS.info("Starting...")
 
-
 try:
     bot.start(bot_token=BOT_TOKEN)
 except Exception as er:
@@ -34,7 +33,6 @@ except Exception as er:
 async def _(e):
     await start(e)
 
-
 @bot.on(events.NewMessage(pattern="/ping"))
 async def _(e):
     await up(e)
@@ -43,7 +41,9 @@ async def _(e):
 async def _(e):
     await sysinfo(e)
 
-
+@bot.on(events.NewMessage(pattern="/leech"))
+async def _(e):
+    await dl_link(e)
 
 @bot.on(events.NewMessage(pattern="/help"))
 async def _(e):
@@ -56,7 +56,6 @@ async def _(e):
 @bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stats(.*)")))
 async def _(e):
     await stats(e)
-
 
 @bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"skip(.*)")))
 async def _(e):
@@ -93,37 +92,46 @@ async def _(e):
 
 ########## AUTO ###########
 
-
 @bot.on(events.NewMessage(incoming=True))
 async def _(e):
     await encod(e)
 
 
 async def something():
-    for i in range(9999999999999999999999999):
+    for i in itertools.count():
         try:
             if not WORKING and QUEUE:
                 user = int(OWNER.split()[0])
                 e = await bot.send_message(user, "**📥 Downloading Queue Files...**")
-                dl, file = QUEUE[list(QUEUE.keys())[0]]
                 s = dt.now()
-                tt = time.time()
-                dl = "downloads/" + dl
-                with open(dl, "wb") as f:
-                    ok = await download_file(
-                        client=bot,
-                        location=file,
-                        out=f,
-                        progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                            progress(
-                                d,
-                                t,
-                                e,
-                                tt,
-                                "**📥 Downloading...**",
+                try:
+                    if isinstance(QUEUE[list(QUEUE.keys())[0]], str):
+                        dl = await fast_download(
+                            e, list(QUEUE.keys())[0], QUEUE[list(QUEUE.keys())[0]]
+                        )
+                    else:
+                        dl, file = QUEUE[list(QUEUE.keys())[0]]
+                        tt = time.time()
+                        dl = "downloads/" + dl
+                        with open(dl, "wb") as f:
+                            ok = await download_file(
+                                client=bot,
+                                location=file,
+                                out=f,
+                                progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
+                                    progress(
+                                        d,
+                                        t,
+                                        e,
+                                        tt,
+                                        "**📥 Downloading...**",
+                                    )
+                                ),
                             )
-                        ),
-                    )
+                except Exception as r:
+                    LOGS.info(r)
+                    WORKING.clear()
+                    QUEUE.pop(list(QUEUE.keys())[0])
                 es = dt.now()
                 kk = dl.split("/")[-1]
                 aa = kk.split(".")[-1]
@@ -189,7 +197,6 @@ async def something():
                     link_preview=False,
                 )
                 QUEUE.pop(list(QUEUE.keys())[0])
-                WORKING.clear()
                 os.remove(dl)
                 os.remove(out)
             else:
