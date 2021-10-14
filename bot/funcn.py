@@ -183,6 +183,12 @@ async def fast_download(e, download_url, filename=None):
             ),
         )
 
+    async def _maybe_await(value):
+        if inspect.isawaitable(value):
+            return await value
+        else:
+            return value
+
     async with aiohttp.ClientSession() as session:
         async with session.get(download_url, timeout=None) as response:
             if not filename:
@@ -195,9 +201,7 @@ async def fast_download(e, download_url, filename=None):
                     if chunk:
                         f.write(chunk)
                         downloaded_size += len(chunk)
-                    if progress_callback:
                         await _maybe_await(
                             progress_callback(downloaded_size, total_size)
                         )
             return filename
-

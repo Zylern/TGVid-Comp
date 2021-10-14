@@ -1,4 +1,5 @@
-# https://github.com/1Danish-00/CompressorQueue/blob/main/License> 
+# https://github.com/1Danish-00/CompressorQueue/blob/main/License> .
+
 
 import asyncio
 import glob
@@ -10,6 +11,7 @@ import math
 import os
 import re
 import shutil
+import signal
 import subprocess
 import sys
 import time
@@ -19,9 +21,9 @@ from logging import DEBUG, INFO, basicConfig, getLogger, warning
 from pathlib import Path
 
 import aiohttp
+import psutil
 from html_telegraph_poster import TelegraphPoster
 from telethon import Button, TelegramClient, errors, events, functions, types
-from telethon.helpers import _maybe_await
 from telethon.sessions import StringSession
 from telethon.utils import pack_bot_file_id
 
