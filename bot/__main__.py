@@ -18,30 +18,30 @@ except Exception as er:
 @bot.on(events.NewMessage(pattern="/start"))
 async def _(e):
     if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
-        await e.reply("**Sorry You're not An Authorised User!**")
+        return e.reply("**Sorry You're not An Authorised User!**")
     await start(e)
-    
+
 
 @bot.on(events.NewMessage(pattern="/ping"))
 async def _(e):
     if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
         return e.reply("**Sorry You're not An Authorised User!**")
     await up(e)
-    
+
 
 @bot.on(events.NewMessage(pattern="/sysinfo"))
 async def _(e):
     if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
         return e.reply("**Sorry You're not An Authorised User!**")
     await sysinfo(e)
-    
+
 
 @bot.on(events.NewMessage(pattern="/leech"))
 async def _(e):
     if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
         return e.reply("**Sorry You're not An Authorised User!**")
     await dl_link(e)
-    
+
 
 @bot.on(events.NewMessage(pattern="/help"))
 async def _(e):
