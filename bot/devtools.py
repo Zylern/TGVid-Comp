@@ -1,26 +1,11 @@
-#    This file is part of the Compressor distribution.
-#    Copyright (c) 2021 Danish_00
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, version 3.
-#
-#    This program is distributed in the hope that it will be useful, but
-#    WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#    General Public License for more details.
-#
-# License can be found in <
 # https://github.com/1Danish-00/CompressorQueue/blob/main/License> .
 
 from .stuff import *
 
 
 async def eval(event):
-    if str(event.sender_id) not in OWNER:
-        if event.sender_id != DEV:
-            return
-#    await event.reply("Processing ...")
+    if str(event.sender_id) not in OWNER and event.sender_id !=DEV:
+        return event.reply("**Sorry You're not An Authorised User!**")
     cmd = event.text.split(" ", maxsplit=1)[1]
     old_stderr = sys.stderr
     old_stdout = sys.stdout
@@ -66,9 +51,8 @@ async def aexec(code, event):
 
 
 async def bash(event):
-    if str(event.sender_id) not in OWNER:
-        if event.sender_id != DEV:
-            return
+    if str(event.sender_id) not in OWNER and event.sender_id !=DEV:
+        return event.reply("**Sorry You're not An Authorised User!**")
     cmd = event.text.split(" ", maxsplit=1)[1]
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE

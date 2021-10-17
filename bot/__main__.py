@@ -1,16 +1,3 @@
-#    This file is part of the Compressor distribution.
-#    Copyright (c) 2021 Danish_00
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, version 3.
-#
-#    This program is distributed in the hope that it will be useful, but
-#    WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#    General Public License for more details.
-#
-# License can be found in
 # <https://github.com/1Danish-00/CompressorQueue/blob/main/License> .
 
 
@@ -28,25 +15,38 @@ except Exception as er:
 
 ####### GENERAL CMDS ########
 
-
 @bot.on(events.NewMessage(pattern="/start"))
 async def _(e):
+    if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
+        return e.reply("**Sorry You're not An Authorised User!**")
     await start(e)
+    
 
 @bot.on(events.NewMessage(pattern="/ping"))
 async def _(e):
+    if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
+        return e.reply("**Sorry You're not An Authorised User!**")
     await up(e)
+    
 
 @bot.on(events.NewMessage(pattern="/sysinfo"))
 async def _(e):
+    if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
+        return e.reply("**Sorry You're not An Authorised User!**")
     await sysinfo(e)
+    
 
 @bot.on(events.NewMessage(pattern="/leech"))
 async def _(e):
+    if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
+        return e.reply("**Sorry You're not An Authorised User!**")
     await dl_link(e)
+    
 
 @bot.on(events.NewMessage(pattern="/help"))
 async def _(e):
+    if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
+        return e.reply("**Sorry You're not An Authorised User!**")
     await help(e)
 
 
@@ -61,16 +61,13 @@ async def _(e):
 async def _(e):
     await skip(e)
 
-
 @bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"back(.*)")))
 async def _(e):
     await back(e)
 
-
 @bot.on(events.callbackquery.CallbackQuery(data=re.compile("ihelp")))
 async def _(e):
     await ihelp(e)
-
 
 @bot.on(events.callbackquery.CallbackQuery(data=re.compile("beck")))
 async def _(e):
@@ -79,11 +76,9 @@ async def _(e):
 
 ########## Direct ###########
 
-
 @bot.on(events.NewMessage(pattern="/eval"))
 async def _(e):
     await eval(e)
-
 
 @bot.on(events.NewMessage(pattern="/bash"))
 async def _(e):
