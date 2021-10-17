@@ -50,6 +50,13 @@ async def _(e):
     await help(e)
 
 
+@bot.on(events.NewMessage(pattern="/clear"))
+async def _(e):
+    if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
+        return e.reply("**Sorry You're not An Authorised User!**")
+    await renew(e)
+
+
 ######## Callbacks #########
 
 

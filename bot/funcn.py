@@ -169,6 +169,23 @@ async def skip(e):
     return
 
 
+async def renew(e):
+    if str(e.sender_id) not in OWNER:
+        return
+    await e.reply("**Cleared Queued, Working Files and Cached Downloads!**")
+    WORKING.clear()
+    QUEUE.clear()
+    os.system("rm -rf downloads/*")
+    os.system("rm -rf encode/*")
+    for proc in psutil.process_iter():
+        processName = proc.name()
+        processID = proc.pid
+        print(processName , ' - ', processID)
+        if (processName == "ffmpeg"):
+         os.kill (processID,signal.SIGKILL)
+    return
+
+
 async def fast_download(e, download_url, filename=None):
     def progress_callback(d, t):
         return (
