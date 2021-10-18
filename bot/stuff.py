@@ -1,16 +1,3 @@
-#    This file is part of the CompressorQueue distribution.
-#    Copyright (c) 2021 Danish_00
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, version 3.
-#
-#    This program is distributed in the hope that it will be useful, but
-#    WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#    General Public License for more details.
-#
-# License can be found in <
 # https://github.com/1Danish-00/CompressorQueue/blob/main/License> .
 
 from .worker import *
@@ -34,13 +21,33 @@ async def start(event):
         ],
     )
 
+async def zylern(event):
+    await event.reply(
+        f"""
+**Available Commands 🤖**
+
+/start - __Check Bot is Working Or Not__
+/help - __Get Detailed Help__
+/ping - __Check Ping__
+/sysinfo - __Get System Info__
+/leech - __Leech Links And Compress Video__
+/renew - __Clear Cached Downloads__
+/clear - __Clear Queued Files__
+/speed - __Do A SpeedTest__
+/eval - __Execute An Argument__
+/bash - __Run Bash Commands__
+/cmds - __List Available Commands__
+"""
+    )
+
+
 async def help(event):
     await event.reply(
-        f"""**To check current ffmpeg command you can use.**\n\n`/eval print(ffmpegcode[0])`\n\n**You can change your ffmpeg code by executing following commands.**\n\n**➩** `/eval ffmpegcode.clear()`\n\n**➩** `/eval ffmpegcode.insert(0, "-preset faster -c:v libx265 -s 854x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -metadata 'title=Encoded By Zylern' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2  -ab 32k  -vbr 2 -level 3.1")`\n\n**Don't use \" inside your ffmpeg code it will give you errors use \' instead.**"""
+        f"""**To check current ffmpeg command you can use.**\n\n`/eval print(ffmpegcode[0])`\n\n**You can change your ffmpeg code by executing following commands.**\n\n**➩** `/eval ffmpegcode.clear()`\n\n**➩** `/eval ffmpegcode.insert(0, \"""-preset faster -c:v libx265 -s 854x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -metadata 'title=Encoded By Zylern' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2  -ab 32k  -vbr 2 -level 3.1\""")`\n\n**Do /cmds For More**"""
     )
 
 
 async def ihelp(event):
     await event.edit(
-        """**To check current ffmpeg command you can use.**\n\n`/eval print(ffmpegcode[0])`\n\n**You can change your ffmpeg code by executing following commands.**\n\n**➩** `/eval ffmpegcode.clear()`\n\n**➩** `/eval ffmpegcode.insert(0, "-preset faster -c:v libx265 -s 854x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -metadata 'title=Encoded By Zylern' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2  -ab 32k  -vbr 2 -level 3.1")`\n\n**Don't use \" inside your ffmpeg code it will give you errors use \' instead.**"""
+        """**To check current ffmpeg command you can use.**\n\n`/eval print(ffmpegcode[0])`\n\n**You can change your ffmpeg code by executing following commands.**\n\n**➩** `/eval ffmpegcode.clear()`\n\n**➩** `/eval ffmpegcode.insert(0, \"""-preset faster -c:v libx265 -s 854x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -metadata 'title=Encoded By Zylern' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2  -ab 32k  -vbr 2 -level 3.1\""")`\n\n**Do /cmds For More**"""
     )

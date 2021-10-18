@@ -1,6 +1,5 @@
 # <https://github.com/1Danish-00/CompressorQueue/blob/main/License> .
 
-
 from . import *
 from .devtools import *
 from .config import *
@@ -20,6 +19,13 @@ async def _(e):
     if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
         return e.reply("**Sorry You're not An Authorised User!**")
     await start(e)
+
+
+@bot.on(events.NewMessage(pattern="/cmds"))
+async def _(e):
+    if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
+        return e.reply("**Sorry You're not An Authorised User!**")
+    await zylern(e)
 
 
 @bot.on(events.NewMessage(pattern="/ping"))
@@ -50,11 +56,18 @@ async def _(e):
     await help(e)
 
 
-@bot.on(events.NewMessage(pattern="/clear"))
+@bot.on(events.NewMessage(pattern="/renew"))
 async def _(e):
     if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
         return e.reply("**Sorry You're not An Authorised User!**")
     await renew(e)
+
+
+@bot.on(events.NewMessage(pattern="/clear"))
+async def _(e):
+    if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
+        return e.reply("**Sorry You're not An Authorised User!**")
+    await clearqueue(e)
 
 
 @bot.on(events.NewMessage(pattern="/speed"))
@@ -62,10 +75,21 @@ async def _(e):
     if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
         return e.reply("**Sorry You're not An Authorised User!**")
     await test(e)
+    
+    
+
+########## Direct ###########
+
+@bot.on(events.NewMessage(pattern="/eval"))
+async def _(e):
+    await eval(e)
+
+@bot.on(events.NewMessage(pattern="/bash"))
+async def _(e):
+    await bash(e)
 
 
 ######## Callbacks #########
-
 
 @bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stats(.*)")))
 async def _(e):
@@ -86,17 +110,6 @@ async def _(e):
 @bot.on(events.callbackquery.CallbackQuery(data=re.compile("beck")))
 async def _(e):
     await beck(e)
-
-
-########## Direct ###########
-
-@bot.on(events.NewMessage(pattern="/eval"))
-async def _(e):
-    await eval(e)
-
-@bot.on(events.NewMessage(pattern="/bash"))
-async def _(e):
-    await bash(e)
 
 
 ########## AUTO ###########
