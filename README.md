@@ -19,14 +19,16 @@
 - [Original Repo](https://github.com/1Danish-00/CompressorQueue)
 
 ## Commands
-add in [@BotFather](https://t.me/BotFather)
+Add in [@BotFather](https://t.me/BotFather)
 
     start - Check Bot is Working or not
-    help - Show Help
+    help - Get Detailed Help
     ping - Check Ping
     sysinfo - Get System Info
-    leech - Leech Links and compress it
-    clear - Clear Cached Downloads, Queue etc
-    speed - Check Server Speed
-    eval - Evaluation
+    leech - Leech Links And Compress Video
+    renew - Clear Cached Downloads, Queue etc
+    clear - Clear Queued Files
+    speed - Do A SpeedTest
+    eval - Execute An Argument
     bash - Run Bash Commands
+    cmds - List Available Commands
