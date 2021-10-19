@@ -1,8 +1,8 @@
-### Telegram Video Encoder
+### TGVid-Comp
 
 - `Queue` This bot has queue feature.
 - `Thumbnail` This bot has thumbnail feature.
-- `Authorize` - Only those can use the bot whose telegram id is in Variables.
+- `OWNER` - Only those user can use the bot whose telegram id is in Variables.
 - `FFMPEG Code Change` - Change ffmpegcode through the bot itself do /help in bot for more info.
 
 ## Deploy On
