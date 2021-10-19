@@ -1,4 +1,4 @@
-### TGVid-Comp
+# TGVid-Comp
 
 - `Queue` This bot has queue feature.
 - `Thumbnail` This bot has thumbnail feature.
