@@ -200,13 +200,21 @@ async def renew(e):
     return
 
 
+async def coding(e):
+    if str(e.sender_id) not in OWNER:
+        return
+    ffmpeg = e.text.split(" ", maxsplit=1)[1]
+    ffmpegcode.insert(0, f"""{ffmpeg}""")
+    await e.reply(f"**Changed FFMPEG code to**\n\n`{ffmpeg}`")
+    return
+
+
 async def clearqueue(e):
     if str(e.sender_id) not in OWNER:
         return
     await e.reply("**Cleared Queued Files!**")
     QUEUE.clear()
     return
-
 
 async def fast_download(e, download_url, filename=None):
     def progress_callback(d, t):

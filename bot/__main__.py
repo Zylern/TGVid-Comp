@@ -21,6 +21,13 @@ async def _(e):
     await start(e)
 
 
+@bot.on(events.NewMessage(pattern="/setcode"))
+async def _(e):
+    if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
+        return e.reply("**Sorry You're not An Authorised User!**")
+    await coding(e)
+
+
 @bot.on(events.NewMessage(pattern="/cmds"))
 async def _(e):
     if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
