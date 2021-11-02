@@ -82,7 +82,7 @@ async def progress(current, total, event, start, type_of_ps, file=None):
         )
         tmp = (
             progress_str
-            + "**➩ Progress:** {0} \n\n**📁 Total Size:** {1}\n\n**🚀 Speed:** {2}/s\n\n**⏰ Time Left:** {3}\n".format(
+            + "**✅ Progress:** {0} \n\n**📁 Total Size:** {1}\n\n**🚀 Speed:** {2}/s\n\n**⏰ Time Left:** {3}\n".format(
                 hbs(current),
                 hbs(total),
                 hbs(speed),
@@ -91,10 +91,10 @@ async def progress(current, total, event, start, type_of_ps, file=None):
         )
         if file:
             await event.edit(
-                "✦ {}\n\nFile Name: {}\n\n{}".format(type_of_ps, file, tmp)
+                "{}\n\nFile Name: {}\n\n{}".format(type_of_ps, file, tmp)
             )
         else:
-            await event.edit("✦ {}\n\n{}".format(type_of_ps, tmp))
+            await event.edit("{}\n\n{}".format(type_of_ps, tmp))
 
 
 async def test(event):
