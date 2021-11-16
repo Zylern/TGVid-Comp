@@ -134,13 +134,6 @@ async def encod(event):
                 return
         else:
             return
-        try:
-            oc = event.fwd_from.from_id.user_id
-            occ = (await event.client.get_me()).id
-            if oc == occ:
-                return await event.reply("**This Video is already Compressed.**")
-        except BaseException:
-            pass
         if WORKING or QUEUE:
             xxx = await event.reply("**Adding To Queue...**")
             # id = pack_bot_file_id(event.media)
