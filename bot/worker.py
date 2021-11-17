@@ -92,9 +92,6 @@ async def dl_link(event):
                 progress(d, t, nnn, ttt, "**📤 Uploading...**")
             ),
         )
-    ds = await xxx.client.send_file(
-        xxx.chat_id, file=ok, force_document=True, thumb=thum
-    )
     await nnn.delete()
     org = int(Path(dl).stat().st_size)
     com = int(Path(out).stat().st_size)
@@ -106,9 +103,9 @@ async def dl_link(event):
     xxx = ts(int((eees - ees).seconds) * 1000)
     a1 = await info(dl, xxx)
     a2 = await info(out, xxx)
-    dk = await ds.reply(
-        f"**➩ Original File Size :** {hbs(org)}\n**➩ Encoded File Size :** {hbs(com)}\n**➩ Encoded File Percentage :** {per}\n\n**➩ Get Mediainfo here :** [Before]({a1})/[After]({a2})\n\n__Downloaded in {x}\nEncoded in {xx}\nUploaded in {xxx}__",
-        link_preview=False,
+    dk = f"**Original File Size :** {hbs(org)}\n**Encoded File Size :** {hbs(com)}\n**Encoded File Percentage :** {per}\n\n**Get Mediainfo here :** [Before]({a1})/[After]({a2})\n\n__Downloaded in {x}\nEncoded in {xx}\nUploaded in {xxx}__"
+    ds = await e.client.send_file(
+        e.chat_id, file=ok, force_document=True, caption=dk, link_preview=False, thumb=thum
     )
     os.remove(dl)
     os.remove(out)
@@ -232,9 +229,6 @@ async def encod(event):
                     progress(d, t, nnn, ttt, "**📤 Uploading...**")
                 ),
             )
-        ds = await e.client.send_file(
-            e.chat_id, file=ok, force_document=True, thumb=thum
-        )
         await nnn.delete()
         org = int(Path(dl).stat().st_size)
         com = int(Path(out).stat().st_size)
@@ -246,9 +240,9 @@ async def encod(event):
         xxx = ts(int((eees - ees).seconds) * 1000)
         a1 = await info(dl, e)
         a2 = await info(out, e)
-        dk = await ds.reply(
-            f"**➩ Original File Size :** {hbs(org)}\n**➩ Encoded File Size :** {hbs(com)}\n**➩ Encoded File Percentage :** {per}\n\n**➩ Get Mediainfo here :** [Before]({a1})/[After]({a2})\n\n__Downloaded in {x}\nEncoded in {xx}\nUploaded in {xxx}__",
-            link_preview=False,
+        dk = f"**Original File Size :** {hbs(org)}\n**Encoded File Size :** {hbs(com)}\n**Encoded File Percentage :** {per}\n\n**Get Mediainfo here :** [Before]({a1})/[After]({a2})\n\n__Downloaded in {x}\nEncoded in {xx}\nUploaded in {xxx}__"
+        ds = await e.client.send_file(
+            e.chat_id, file=ok, force_document=True, caption=dk, link_preview=False, thumb=thum
         )
         os.remove(dl)
         os.remove(out)
