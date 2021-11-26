@@ -164,6 +164,7 @@ async def something():
                 es = dt.now()
                 kk = dl.split("/")[-1]
                 aa = kk.split(".")[-1]
+                newFile = dl.replace(f"downloads/", "").replace(f"_", " ")
                 rr = "encode"
                 bb = kk.replace(f".{aa}", " [CBZ].mkv")
                 out = f"{rr}/{bb}"
@@ -178,7 +179,6 @@ async def something():
                         [Button.inline("CANCEL", data=f"skip{wah}")],
                     ],
                 )
-                ffmpegcode.append("-preset faster -c:v libx265 -s 854x480 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1")
                 cmd = f"""ffmpeg -i "{dl}" {ffmpegcode[0]} "{out}" -y"""
                 process = await asyncio.create_subprocess_shell(
                     cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
@@ -218,7 +218,7 @@ async def something():
                 xxx = ts(int((eees - ees).seconds) * 1000)
                 a1 = await info(dl, e)
                 a2 = await info(out, e)
-                dk = f"**Original File Size :** {hbs(org)}\n**Encoded File Size :** {hbs(com)}\n**Encoded Percentage :** {per}\n\n**Get Mediainfo here :** [Before]({a1})/[After]({a2})\n\n__Downloaded in {x}\nEncoded in {xx}\nUploaded in {xxx}__"
+                dk = f"**File:** {newFile}\n\n**Original File Size :** {hbs(org)}\n**Encoded File Size :** {hbs(com)}\n**Encoded Percentage :** {per}\n\n**Get Mediainfo here :** [Before]({a1})/[After]({a2})\n\n__Downloaded in {x}\nEncoded in {xx}\nUploaded in {xxx}__"
                 ds = await e.client.send_file(
                     e.chat_id, file=ok, force_document=True, caption=dk, link_preview=False, thumb=thum
                 )
