@@ -218,7 +218,7 @@ async def something():
                 xxx = ts(int((eees - ees).seconds) * 1000)
                 a1 = await info(dl, e)
                 a2 = await info(out, e)
-                dk = f"**File:** {newFile}\n\n**Original File Size :** {hbs(org)}\n**Encoded File Size :** {hbs(com)}\n**Encoded Percentage :** {per}\n\n**Get Mediainfo here :** [Before]({a1})/[After]({a2})\n\n__Downloaded in {x}\nEncoded in {xx}\nUploaded in {xxx}__"
+                dk = f"**File Name:** {newFile}\n\n**Original File Size :** {hbs(org)}\n**Encoded File Size :** {hbs(com)}\n**Encoded Percentage :** {per}\n\n**Get Mediainfo here :** [Before]({a1})/[After]({a2})\n\n__Downloaded in {x}\nEncoded in {xx}\nUploaded in {xxx}__"
                 ds = await e.client.send_file(
                     e.chat_id, file=ok, force_document=True, caption=dk, link_preview=False, thumb=thum
                 )
