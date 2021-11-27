@@ -164,7 +164,7 @@ async def something():
                 es = dt.now()
                 kk = dl.split("/")[-1]
                 aa = kk.split(".")[-1]
-                newFile = dl.replace(f"downloads/", "").replace(f"_", " ").replace(f" [CBZ]", "")
+                newFile = dl.replace(f"downloads/", "").replace(f"_", " ")
                 rr = "encode"
                 bb = kk.replace(f".{aa}", " [CBZ].mkv")
                 out = f"{rr}/{bb}"
@@ -218,9 +218,9 @@ async def something():
                 xxx = ts(int((eees - ees).seconds) * 1000)
                 a1 = await info(dl, e)
                 a2 = await info(out, e)
-                dk = f"**File Name:** {newFile}\n\n**Original File Size :** {hbs(org)}\n**Encoded File Size :** {hbs(com)}\n**Encoded Percentage :** {per}\n\n**Get Mediainfo here :** [Before]({a1})/[After]({a2})\n\n__Downloaded in {x}\nEncoded in {xx}\nUploaded in {xxx}__"
+                dk = f"<b>File Name:</b> {newFile}\n\n<b>Original File Size:</b> {hbs(org)}\n<b>Encoded File Size:</b> {hbs(com)}\n<b>Encoded Percentage:</b> {per}\n\n<b>Get Mediainfo here:</b> <a href='{a1}'>Before</a>/<a href='{a2}'>After</a>\n\n<i>Downloaded in {x}\nEncoded in {xx}\nUploaded in {xxx}</i>"
                 ds = await e.client.send_file(
-                    e.chat_id, file=ok, force_document=True, caption=dk, link_preview=False, thumb=thum
+                    e.chat_id, file=ok, force_document=True, caption=dk, link_preview=False, thumb=thum, parse_mode="html"
                 )
                 QUEUE.pop(list(QUEUE.keys())[0])
                 os.remove(dl)
