@@ -164,7 +164,7 @@ async def something():
                 es = dt.now()
                 kk = dl.split("/")[-1]
                 aa = kk.split(".")[-1]
-                newFile = dl.replace(f"downloads/", "").replace(f"_", " ")
+                newFile = dl.replace(f"downloads/", "").replace(f"_", " ").replace(f" [CBZ]", "")
                 rr = "encode"
                 bb = kk.replace(f".{aa}", " [CBZ].mkv")
                 out = f"{rr}/{bb}"
