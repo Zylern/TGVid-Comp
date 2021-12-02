@@ -8,6 +8,7 @@ from .worker import *
 from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
 import psutil, os, signal
+from bot import ffmpegcode
 
 WORKING = []
 QUEUE = {}
@@ -206,7 +207,14 @@ async def coding(e):
     ffmpeg = e.text.split(" ", maxsplit=1)[1]
     ffmpegcode.clear()
     ffmpegcode.insert(0, f"""{ffmpeg}""")
-    await e.reply(f"**Changed FFMPEG code to**\n\n`{ffmpeg}`")
+    await e.reply(f"**Changed FFMPEG Code to**\n\n`{ffmpeg}`")
+    return
+
+
+async def getcode(e):
+    if str(e.sender_id) not in OWNER and event.sender_id !=DEV:
+        return
+    await e.reply(f"**Your Current FFMPEG Code is**\n\n`{ffmpegcode[0]}`")
     return
 
 

@@ -31,6 +31,7 @@ async def zylern(event):
 
 /start - __Check Bot is Working Or Not__
 /setcode - __Set Custom FFMPEG Code__
+/getcode - __Print Current FFMPEG Code__
 /help - __Get Detailed Help__
 /ping - __Check Ping__
 /sysinfo - __Get System Info__
@@ -47,11 +48,11 @@ async def zylern(event):
 
 async def help(event):
     await event.reply(
-        f"""**To check current ffmpeg command you can use.**\n\n`/eval print(ffmpegcode[0])`\n\n**You can change your ffmpeg code by executing following commands.**\n\n**➩** `/setcode -preset faster -c:v libx265 -s 1280x720 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 1`\n\n**Do /cmds For More**"""
+        f"""**To check current ffmpeg code you can use** /getcode\n\n**You can change your ffmpeg code by executing following command.**\n\n`/setcode -preset faster -c:v libx265 -s 1280x720 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 1`\n\n**Do /cmds For More**"""
     )
 
 
 async def ihelp(event):
     await event.edit(
-        """**To check current ffmpeg command you can use.**\n\n`/eval print(ffmpegcode[0])`\n\n**You can change your ffmpeg code by executing following commands.**\n\n**➩** `/setcode -preset faster -c:v libx265 -s 1280x720 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 1`\n\n**Do /cmds For More**"""
+        f"""**To check current ffmpeg code you can use** /getcode\n\n**You can change your ffmpeg code by executing following command.**\n\n`/setcode -preset faster -c:v libx265 -s 1280x720 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 1`\n\n**Do /cmds For More**"""
     )
