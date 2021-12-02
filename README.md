@@ -25,6 +25,7 @@ Add in [@BotFather](https://t.me/BotFather)
 
     start - Check Bot is Working or not
     setcode - Set Custom FFMPEG Code
+    getcode - Print Current FFMPEG Code
     help - Get Detailed Help
     ping - Check Ping
     sysinfo - Get System Info
