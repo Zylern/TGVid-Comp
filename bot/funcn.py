@@ -212,16 +212,6 @@ async def coding(e):
     return
 
 
-async def coding(e):
-    if str(e.sender_id) not in OWNER and event.sender_id !=DEV:
-        return
-    ffmpeg = e.text.split(" ", maxsplit=1)[1]
-    ffmpegcode.clear()
-    ffmpegcode.insert(0, f"""{ffmpeg}""")
-    await e.reply(f"**Changed FFMPEG Code to**\n\n`{ffmpeg}`")
-    return
-
-
 async def getlogs(e):
     if str(e.sender_id) not in OWNER and event.sender_id !=DEV:
         return
