@@ -168,7 +168,7 @@ async def encod(event):
                                 t,
                                 xxx,
                                 ttt,
-                                "**📥 Downloading...**",
+                                f"**📥 Downloading**\n__{filename}__",
                             )
                         ),
                     )
@@ -177,7 +177,7 @@ async def encod(event):
                     event.media,
                     dir,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, xxx, ttt, "**📥 Downloading...**")
+                        progress(d, t, xxx, ttt, f"**📥 Downloading**\n__{filename}__")
                     ),
                 )
         except Exception as er:
@@ -227,7 +227,7 @@ async def encod(event):
                 file=f,
                 name=out,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, nnn, ttt, "**📤 Uploading...**")
+                    progress(d, t, nnn, ttt, f"**📤 Uploading**\n__{out.replace(f'encode/', '')}__")
                 ),
             )
         await nnn.delete()
