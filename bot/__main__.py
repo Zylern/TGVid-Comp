@@ -160,7 +160,7 @@ async def something():
                                         t,
                                         e,
                                         tt,
-                                        f"**📥 Downloading**\n__{filename}__",
+                                        f"**📥 Downloading**\n__{dl.replace(f'downloads/', '')}__",
                                     )
                                 ),
                             )
@@ -173,7 +173,7 @@ async def something():
                 aa = kk.split(".")[-1]
                 newFile = dl.replace(f"downloads/", "").replace(f"_", " ")
                 rr = "encode"
-                bb = kk.replace(f".{aa}", " [CBZ].mkv")
+                bb = kk.replace(f".{aa}", "_[CBZ].mkv")
                 out = f"{rr}/{bb}"
                 thum = "thumb.jpg"
                 dtime = ts(int((es - s).seconds) * 1000)

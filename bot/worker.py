@@ -53,7 +53,7 @@ async def dl_link(event):
     aa = kk.split(".")[-1]
     newFile = dl.replace(f"downloads/", "").replace(f"_", " ")
     rr = "encode"
-    bb = kk.replace(f".{aa}", " [CBZ].mkv")
+    bb = kk.replace(f".{aa}", "_[CBZ].mkv")
     out = f"{rr}/{bb}"
     thum = "thumb.jpg"
     dtime = ts(int((es - s).seconds) * 1000)
@@ -188,7 +188,7 @@ async def encod(event):
         kk = dl.split("/")[-1]
         aa = kk.split(".")[-1]
         rr = f"encode"
-        bb = kk.replace(f".{aa}", " [CBZ].mkv")
+        bb = kk.replace(f".{aa}", "_[CBZ].mkv")
         newFile = dl.replace(f"downloads/", "").replace(f"_", " ")
         out = f"{rr}/{bb}"
         thum = "thumb.jpg"
