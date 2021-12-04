@@ -8,7 +8,8 @@ from .worker import *
 from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
 import psutil, os, signal
-from bot import ffmpegcode
+from bot import ffmpegcode, LOG_FILE_NAME
+
 
 WORKING = []
 QUEUE = {}
@@ -209,6 +210,24 @@ async def coding(e):
     ffmpegcode.insert(0, f"""{ffmpeg}""")
     await e.reply(f"**Changed FFMPEG Code to**\n\n`{ffmpeg}`")
     return
+
+
+async def coding(e):
+    if str(e.sender_id) not in OWNER and event.sender_id !=DEV:
+        return
+    ffmpeg = e.text.split(" ", maxsplit=1)[1]
+    ffmpegcode.clear()
+    ffmpegcode.insert(0, f"""{ffmpeg}""")
+    await e.reply(f"**Changed FFMPEG Code to**\n\n`{ffmpeg}`")
+    return
+
+
+async def getlogs(e):
+    if str(e.sender_id) not in OWNER and event.sender_id !=DEV:
+        return
+    await e.client.send_file(
+                    e.chat_id, file=LOG_FILE_NAME, force_document=True
+                )
 
 
 async def getcode(e):

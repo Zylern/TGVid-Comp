@@ -30,9 +30,10 @@ async def zylern(event):
 **Available Commands 🤖**
 
 /start - __Check Bot is Working Or Not__
+/help - __Get Detailed Help__
 /setcode - __Set Custom FFMPEG Code__
 /getcode - __Print Current FFMPEG Code__
-/help - __Get Detailed Help__
+/logs - __Get Bot Logs__
 /ping - __Check Ping__
 /sysinfo - __Get System Info__
 /leech - __Leech Links And Compress Video__

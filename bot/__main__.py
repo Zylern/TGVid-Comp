@@ -1,8 +1,10 @@
 # <https://github.com/1Danish-00/CompressorQueue/blob/main/License> .
 
 from . import *
-from .devtools import *
 from .config import *
+from .worker import *
+from .devtools import *
+
 
 LOGS.info("Starting...")
 
@@ -33,6 +35,13 @@ async def _(e):
     if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
         return e.reply("**Sorry You're not An Authorised User!**")
     await getcode(e)
+
+
+@bot.on(events.NewMessage(pattern="/logs"))
+async def _(e):
+    if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
+        return e.reply("**Sorry You're not An Authorised User!**")
+    await getlogs(e)
 
 
 @bot.on(events.NewMessage(pattern="/cmds"))
