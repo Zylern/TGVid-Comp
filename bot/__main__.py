@@ -1,4 +1,7 @@
-# <https://github.com/1Danish-00/CompressorQueue/blob/main/License> .
+#    This file is part of the CompressorQueue distribution.
+#    Copyright (c) 2021 Danish_00
+#    Script Improved by Zylern
+
 
 from . import *
 from .config import *
@@ -182,7 +185,7 @@ async def something():
                 aa = kk.split(".")[-1]
                 newFile = dl.replace(f"downloads/", "").replace(f"_", " ")
                 rr = "encode"
-                bb = kk.replace(f".{aa}", "_[CBZ].mkv")
+                bb = kk.replace(f".{aa}", ".mkv")
                 out = f"{rr}/{bb}"
                 thum = "thumb.jpg"
                 dtime = ts(int((es - s).seconds) * 1000)

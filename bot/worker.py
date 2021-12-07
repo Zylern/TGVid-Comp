@@ -1,5 +1,6 @@
-# https://github.com/1Danish-00/CompressorQueue/blob/main/License> .
-
+#    This file is part of the CompressorQueue distribution.
+#    Copyright (c) 2021 Danish_00
+#    Script Improved by Zylern
 
 from .FastTelethon import download_file, upload_file
 from .funcn import *
@@ -53,7 +54,7 @@ async def dl_link(event):
     aa = kk.split(".")[-1]
     newFile = dl.replace(f"downloads/", "").replace(f"_", " ")
     rr = "encode"
-    bb = kk.replace(f".{aa}", "_[CBZ].mkv")
+    bb = kk.replace(f".{aa}", ".mkv")
     out = f"{rr}/{bb}"
     thum = "thumb.jpg"
     dtime = ts(int((es - s).seconds) * 1000)
@@ -188,7 +189,7 @@ async def encod(event):
         kk = dl.split("/")[-1]
         aa = kk.split(".")[-1]
         rr = f"encode"
-        bb = kk.replace(f".{aa}", "_[CBZ].mkv")
+        bb = kk.replace(f".{aa}", ".mkv")
         newFile = dl.replace(f"downloads/", "").replace(f"_", " ")
         out = f"{rr}/{bb}"
         thum = "thumb.jpg"
