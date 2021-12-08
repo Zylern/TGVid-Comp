@@ -2,6 +2,7 @@
 #    Copyright (c) 2021 Danish_00
 #    Script Improved by Zylern
 
+
 from . import *
 from .config import *
 from .worker import *
@@ -10,11 +11,9 @@ from asyncio.subprocess import PIPE as asyncPIPE
 import psutil, os, signal
 from bot import ffmpegcode, LOG_FILE_NAME
 
-
 WORKING = []
 QUEUE = {}
 OK = {}
-
 uptime = dt.now()
 os.system(f"wget {THUMB} -O thumb.jpg")
 
@@ -172,9 +171,7 @@ async def skip(e):
         await e.delete()
         os.system("rm -rf downloads/*")
         os.system("rm -rf encode/*")
-#        os.remove(dl)
-#        os.remove(out)
-        for proc in psutil.process_iter(): #Lets kill ffmpeg else it will run in memory even after deleting input.
+        for proc in psutil.process_iter():
             processName = proc.name()
             processID = proc.pid
             print(processName , ' - ', processID)
@@ -215,9 +212,13 @@ async def coding(e):
 async def getlogs(e):
     if str(e.sender_id) not in OWNER and event.sender_id !=DEV:
         return
-    await e.client.send_file(
-                    e.chat_id, file=LOG_FILE_NAME, force_document=True
-                )
+    await e.client.send_file(e.chat_id, file=LOG_FILE_NAME, force_document=True)
+
+
+async def getthumb(e):
+    if str(e.sender_id) not in OWNER and event.sender_id !=DEV:
+        return
+    await e.client.send_file(e.chat_id, file="/bot/thumb.jpg", force_document=False, caption="**Your Current Thumbnail.**")
 
 
 async def getcode(e):
@@ -234,6 +235,7 @@ async def clearqueue(e):
     QUEUE.clear()
     return
 
+
 async def fast_download(e, download_url, filename=None):
     def progress_callback(d, t):
         return (
@@ -248,11 +250,13 @@ async def fast_download(e, download_url, filename=None):
             ),
         )
 
+
     async def _maybe_await(value):
         if inspect.isawaitable(value):
             return await value
         else:
             return value
+
 
     async with aiohttp.ClientSession() as session:
         async with session.get(download_url, timeout=None) as response:

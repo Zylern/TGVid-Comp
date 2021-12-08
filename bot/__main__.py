@@ -7,8 +7,7 @@ from . import *
 from .config import *
 from .worker import *
 from .devtools import *
-
-
+from .FastTelethon import *
 LOGS.info("Starting...")
 
 try:
@@ -38,6 +37,13 @@ async def _(e):
     if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
         return e.reply("**Sorry You're not An Authorised User!**")
     await getcode(e)
+
+
+@bot.on(events.NewMessage(pattern="/showthumb"))
+async def _(e):
+    if str(e.sender_id) not in OWNER and e.sender_id !=DEV:
+        return e.reply("**Sorry You're not An Authorised User!**")
+    await getthumb(e)
 
 
 @bot.on(events.NewMessage(pattern="/logs"))
@@ -125,20 +131,22 @@ async def _(e):
 async def _(e):
     await skip(e)
 
-@bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"back(.*)")))
+@bot.on(events.callbackquery.CallbackQuery(data=re.compile("help")))
 async def _(e):
-    await back(e)
-
-@bot.on(events.callbackquery.CallbackQuery(data=re.compile("ihelp")))
-async def _(e):
-    await ihelp(e)
-
-@bot.on(events.callbackquery.CallbackQuery(data=re.compile("beck")))
-async def _(e):
-    await beck(e)
-
+    await help(e)
 
 ########## AUTO ###########
+
+@bot.on(events.NewMessage(incoming=True))
+async def _(event):
+        if str(event.sender_id) not in OWNER and event.sender_id !=DEV:
+            return await event.reply_text("**Sorry You're not An Authorised User!**")
+        if not event.photo:
+            return
+        os.system("rm thumb.jpg")
+        await event.client.download_media(event.media, file="/bot/thumb.jpg")
+        await event.reply("**Thumbnail Saved Successfully.**")
+
 
 @bot.on(events.NewMessage(incoming=True))
 async def _(e):
