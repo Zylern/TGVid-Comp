@@ -2,10 +2,10 @@
 
 A Telegram Bot To Encode Videos Using FFMPEG.
 
-- `Queue` This bot has queue feature.
-- `Thumbnail` This bot has thumbnail feature.
-- `OWNER` - Only those user can use the bot whose telegram id is in Variables.
-- `FFMPEG Code Change` - Change ffmpegcode through the bot itself do /help in bot for more info.
+- `Queue` - This bot has queue feature.
+- `Thumbnail` - Send any image and it will be set as file thumbnail.
+- `OWNER` - Only authorised user can use it.
+- `FFMPEG Code Change` - Change ffmpegcode through the bot itself do /help in bot pm for more info.
 
 ## Deploy On
 
@@ -33,6 +33,7 @@ Add in [@BotFather](https://t.me/BotFather)
     leech - Leech Links And Compress Video
     renew - Clear Cached Downloads, Queue etc
     clear - Clear Queued Files
+    showthumb - Show Current Thumbnail
     speed - Do A SpeedTest
     eval - Execute An Argument
     bash - Run Bash Commands
