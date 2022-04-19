@@ -2,6 +2,7 @@
 #    Copyright (c) 2021 Danish_00
 #    Script Improved by Zylern
 
+import time
 from .FastTelethon import download_file, upload_file
 from .funcn import *
 from .config import *
@@ -131,6 +132,7 @@ async def encod(event):
         else:
             return
         if WORKING or QUEUE:
+            time.sleep(2)
             xxx = await event.reply("**Adding To Queue...**")
             # id = pack_bot_file_id(event.media)
             doc = event.media.document
