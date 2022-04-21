@@ -5,6 +5,7 @@
 from . import *
 from .config import *
 from .worker import *
+from urllib.parse import unquote
 from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
 import psutil, os, signal, sys, platform, sysconfig
@@ -249,6 +250,7 @@ async def fast_download(e, download_url, filename=None):
         async with session.get(download_url, timeout=None) as response:
             if not filename:
                 filename = download_url.rpartition("/")[-1]
+            filename = unquote(filename)
             filename = os.path.join("downloads", filename)
             total_size = int(response.headers.get("content-length", 0)) or None
             downloaded_size = 0
