@@ -19,7 +19,7 @@ A Telegram Bot To Encode Videos Using FFMPEG.
 
 `Okteto`
 
-[![Deploy on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com)
+[![Deploy on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/#/deploy?repository=https://github.com/Zylern/TGVid-Comp&vars=[{"name":"APP_ID","value":"Your App Id"},{"name":"API_HASH","value":"Your Api Hash"},{"name":"BOT_TOKEN","value":"BotToken"},{"name":"OWNER","value":"OwnerId"},{"name":"THUMBNAIL","value":"https://telegra.ph/file/f9e5d783542906418412d.jpg"}])
 
 - [Original Repo](https://github.com/1Danish-00/CompressorQueue)
 
