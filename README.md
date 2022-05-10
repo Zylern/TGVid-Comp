@@ -8,6 +8,7 @@ A Telegram Bot To Encode Videos Using FFMPEG.
 - `FFMPEG Code Change` - Change ffmpegcode through the bot itself do /help in bot pm for more info.
 
 ## Deploy On
+### Note: Repo is flagged by Heroku to deploy fork this repo and deploy your forked one.
 
 `Heroku`
 
