@@ -206,7 +206,7 @@ async def something():
                         [Button.inline("CANCEL", data=f"skip{wah}")],
                     ],
                 )
-                cmd = f"""ffmpeg -i "{dl}" {ffmpegcode[0]} "{out}" -y"""
+                cmd = f"""ffmpeg -i "{dl}" -vf subtitles="watermark.ass" {ffmpegcode[0]} "{out}" -y"""
                 process = await asyncio.create_subprocess_shell(
                     cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
                 )
